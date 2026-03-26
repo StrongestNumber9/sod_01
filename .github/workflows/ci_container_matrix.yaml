@@ -23,4 +23,4 @@ jobs:
         run: docker build . --tag builder-${{ matrix.rocky_version }} --build-arg LIBSODIUM_VERSION=${LIBSODIUM_VERSION} --build-arg ROCKY_VERSION=${{ matrix.rocky_version }};
 
       - name: Build project
-        run: docker run -t -i builder-${{ matrix.rocky_version }}
+        run: docker run builder-${{ matrix.rocky_version }}
