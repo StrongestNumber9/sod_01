@@ -5,7 +5,7 @@
   <packaging>rpm</packaging>
   <modelVersion>4.0.0</modelVersion>
   <artifactId>sod_01</artifactId>
-  <version>${revision}${sha1}${changelist}.${env.OS_VERSION}</version>
+  <version>${revision}${sha1}${changelist}.el${env.OS_VERSION}</version>
   <name>sod_01</name>
   <description>sod_01</description>
   <groupId>com.teragrep</groupId>
