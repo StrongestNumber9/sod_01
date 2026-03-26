@@ -43,7 +43,7 @@
           <packager>teragrep &lt;servicedesk@teragrep.com&gt;</packager>
           <group>teragrep/LogManagementSuite</group>
           <needarch>true</needarch>
-          <description>${project.groupId}-${project.artifactId} based on libsodium ${env.LIBSODIUM_vERSION}</description>
+          <description>${project.groupId}-${project.artifactId} based on libsodium ${env.LIBSODIUM_VERSION}</description>
           <defaultUsername>root</defaultUsername>
           <defaultGroupname>root</defaultGroupname>
           <defaultFilemode>0644</defaultFilemode>
