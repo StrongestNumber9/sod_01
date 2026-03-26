@@ -50,7 +50,7 @@ jobs:
         run: mvn --batch-mode -Drevision=${{ github.event.release.tag_name }} -Dsha1= -Dchangelist= -f rpm.pom.xml package
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OS_VERSION: ${{ matrix.os }}
+          OS_VERSION: ${{ matrix.rocky_version }}
           RPM_SIGNING_KEYNAME: ${{ env.RPM_SIGNING_KEYNAME }}
           RPM_SIGNING_PASSPHRASE: ${{ secrets.RPM_SIGNING_PASSPHRASE }}
 
@@ -65,12 +65,12 @@ jobs:
           from_repository: "${{ github.repository }}"
           from_version: "${{ github.event.release.tag_name }}"
           to_repository: "${{ github.repository_owner }}/pkg_01"
-          to_path: "linux/el${{ matrix.os }}"
+          to_path: "linux/el${{ matrix.rocky_version }}"
           deploy_key: ${{ secrets.PKG_01_DEPLOY_KEY }}
           files: target/rpm/com.teragrep-sod_01/RPMS/x86_64/com.teragrep-sod_01-*.rpm
           gpg_public_key: "${{ secrets.RPM_SIGNING_PUBLIC_KEY }}"
-          repo_baseurl: "${{ vars.PKG_01_BASEURL }}/linux/el${{ matrix.os }}"
-          repo_name: "teragrep-el${{ matrix.os }}-releases"
+          repo_baseurl: "${{ vars.PKG_01_BASEURL }}/linux/el${{ matrix.rocky_version }}"
+          repo_name: "teragrep-el${{ matrix.rocky_version }}-releases"
           location_prefix: "${{ vars.PKG_01_LOCATION_PREFIX }}"
         env:
           has_deploy_key: ${{ secrets.PKG_01_DEPLOY_KEY != '' }}
