@@ -68,7 +68,7 @@
               <recurseDirectories>true</recurseDirectories>
               <sources>
                 <source>
-                  <location>${project.basedir}/release</location>
+                  <location>${project.basedir}/release/opt/teragrep/${project.artifactId}/</location>
                 </source>
               </sources>
             </mapping>

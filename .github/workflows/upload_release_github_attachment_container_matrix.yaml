@@ -37,7 +37,7 @@ jobs:
         run: docker build . --tag builder-${{ matrix.rocky_version }} --build-arg LIBSODIUM_VERSION=${LIBSODIUM_VERSION} --build-arg ROCKY_VERSION=${{ matrix.rocky_version }};
 
       - name: Build project
-        run: docker run -v $(pwd)/release/:/build/release/ builder-${{ matrix.rocky_version }}
+        run: mkdir release && docker run -v $(pwd)/release/:/build/release/ builder-${{ matrix.rocky_version }}
 
       - name: Prepare RPM GPG signing
         run: |

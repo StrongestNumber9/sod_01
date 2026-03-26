@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e;
 cd /build/workdir/;
-./configure;
+./configure --prefix=/opt/teragrep/sod_01/;
 make;
 make check;
-make install PREFIX=/opt/teragrep/sod_01/ DESTDIR=/build/release/;
+make install DESTDIR=/build/release/;
