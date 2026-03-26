@@ -58,8 +58,9 @@
             <defineStatement>__requires_exclude ^osgi\\(.*$</defineStatement>
           </defineStatements>
           <mappings>
+            <!-- lib -->
             <mapping>
-              <directory>/opt/teragrep/${project.artifactId}/</directory>
+              <directory>/opt/teragrep/${project.artifactId}/lib</directory>
               <directoryIncluded>true</directoryIncluded>
               <filemode>755</filemode>
               <dirmode>755</dirmode>
@@ -68,7 +69,26 @@
               <recurseDirectories>true</recurseDirectories>
               <sources>
                 <source>
-                  <location>${project.basedir}/release/opt/teragrep/${project.artifactId}/</location>
+                  <location>${project.basedir}/release/opt/teragrep/${project.artifactId}/lib</location>
+                  <excludes>
+                    <!-- brp-remove-la-files will remove these and fail the build unless manually handled otherwise -->
+                    <exclude>**/*.la</exclude>
+                  </excludes>
+                </source>
+              </sources>
+            </mapping>
+            <!-- include -->
+            <mapping>
+              <directory>/opt/teragrep/${project.artifactId}/include</directory>
+              <directoryIncluded>true</directoryIncluded>
+              <filemode>644</filemode>
+              <dirmode>644</dirmode>
+              <username>root</username>
+              <groupname>root</groupname>
+              <recurseDirectories>true</recurseDirectories>
+              <sources>
+                <source>
+                  <location>${project.basedir}/release/opt/teragrep/${project.artifactId}/include</location>
                 </source>
               </sources>
             </mapping>
